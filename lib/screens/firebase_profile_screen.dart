@@ -38,7 +38,7 @@ class _FirebaseProfileScreenState extends State<FirebaseProfileScreen> {
         ),
         child: SafeArea(
           child: StreamBuilder<DocumentSnapshot>(
-            stream: _db.collection('users').doc(_user.uid).snapshots(),
+            stream: _db.collection('users').doc(_user!.uid).snapshots(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Center(
@@ -47,12 +47,12 @@ class _FirebaseProfileScreenState extends State<FirebaseProfileScreen> {
               }
 
               String name = 'User';
-              String email = _user.email ?? '';
+              String email = _user!.email ?? '';
 
               if (snapshot.hasData && snapshot.data!.exists) {
                 final data = snapshot.data!.data() as Map<String, dynamic>;
                 name = data['name'] ?? 'User';
-                email = data['email'] ?? _user.email ?? '';
+                email = data['email'] ?? _user!.email ?? '';
               }
 
               return SingleChildScrollView(
@@ -81,9 +81,9 @@ class _FirebaseProfileScreenState extends State<FirebaseProfileScreen> {
                                 ),
                               ),
                               const Spacer(),
-                              Text(
+                              const Text(
                                 'My Profile',
-                                style: const TextStyle(
+                                style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
