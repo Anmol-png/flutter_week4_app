@@ -27,18 +27,22 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
   }
 
   Future<void> _fetchUserDetails() async {
-    setState(() {
-      _isLoading = true;
-      _errorMessage = null;
-    });
+    if (mounted) {
+      setState(() {
+        _isLoading = true;
+        _errorMessage = null;
+      });
+    }
 
     try {
       final user = await _apiService.fetchUserById(widget.userId);
+      if (!mounted) return;
       setState(() {
         _user = user;
         _isLoading = false;
       });
     } catch (e) {
+      if (!mounted) return;
       setState(() {
         _errorMessage = e.toString();
         _isLoading = false;
@@ -47,17 +51,21 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
   }
 
   Future<void> _fetchUserPosts() async {
-    setState(() {
-      _isLoadingPosts = true;
-    });
+    if (mounted) {
+      setState(() {
+        _isLoadingPosts = true;
+      });
+    }
 
     try {
       final posts = await _apiService.fetchUserPosts(widget.userId);
+      if (!mounted) return;
       setState(() {
         _userPosts = posts;
         _isLoadingPosts = false;
       });
     } catch (e) {
+      if (!mounted) return;
       setState(() {
         _isLoadingPosts = false;
       });
