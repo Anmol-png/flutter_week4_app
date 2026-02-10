@@ -1,7 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'screens/login_screen.dart';
 import 'screens/home_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  try {
+    // Initialize Firebase with platform-specific options
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    // Debug: print initialized app info
+    try {
+      final app = Firebase.app();
+      print(
+        'Firebase initialized: name=${app.name}, appId=${app.options.appId}, apiKey=${app.options.apiKey}, projectId=${app.options.projectId}',
+      );
+    } catch (e) {
+      print('Firebase app info unavailable: $e');
+    }
+  } catch (e) {
+    // If Firebase initialization fails, continue without it
+    // (for example, missing config)
+    print('Firebase initialization error: $e');
+  }
+
   runApp(const MyApp());
 }
 
@@ -11,7 +37,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Week 4 - API Integration',
+      title: 'Flutter Week 4-5 - API & Firebase',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
@@ -27,7 +53,6 @@ class MyApp extends StatelessWidget {
           foregroundColor: Color(0xFF2D3142),
         ),
         cardTheme: CardThemeData(
-          // ✅ Changed here
           elevation: 0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
@@ -44,7 +69,34 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const HomeScreen(),
+      home: const AuthChecker(),
+    );
+  }
+}
+
+class AuthChecker extends StatelessWidget {
+  const AuthChecker({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<User?>(
+      stream: FirebaseAuth.instance.authStateChanges(),
+      builder: (context, snapshot) {
+        // Show loading while checking auth state
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Scaffold(
+            body: Center(child: CircularProgressIndicator()),
+          );
+        }
+
+        // If user is signed in, show home screen
+        // Otherwise show login screen
+        if (snapshot.hasData) {
+          return const HomeScreen();
+        } else {
+          return const LoginScreen();
+        }
+      },
     );
   }
 }
