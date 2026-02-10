@@ -1,106 +1,149 @@
-# 🚀 Flutter Week 4 - API Integration & Networking
+# Flutter Week 5 App 
 
-A beautifully designed Flutter application demonstrating API integration, JSON parsing, error handling, and loading indicators.
+A Flutter application demonstrating API integration, networking, error handling, and modern UI design principles.
 
-[![Flutter Version](https://img.shields.io/badge/Flutter-3.0%2B-blue.svg)](https://flutter.dev/)
-[![Dart Version](https://img.shields.io/badge/Dart-3.0%2B-blue.svg)](https://dart.dev/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+## 📋 Table of Contents
 
-## ✨ Beautiful Modern Design
+- [Overview](#overview)
+- [Features](#features)
+- [Screenshots](#screenshots)
+- [Project Structure](#project-structure)
+- [Setup Instructions](#setup-instructions)
+- [Dependencies](#dependencies)
+- [API Integration](#api-integration)
+- [Week 4 Requirements](#week-4-requirements)
+- [Technical Implementation](#technical-implementation)
+- [Testing](#testing)
+- [Troubleshooting](#troubleshooting)
 
-This app features a **stunning, modern UI** with:
-- 🎨 Vibrant color palette (Purple, Pink, Cyan, Yellow)
-- 💫 Smooth animations and hero transitions
-- 🎯 Clean card-based interface with Material Design 3
-- 🌈 Gradient avatars with elegant shadows
-- ✨ Professional typography and spacing
+## 🎯 Overview
 
-## 📱 Screenshots
+This Flutter application is built as part of the Flutter Developers Internship Program (Cycle 2) - Week 4 assignment. It demonstrates professional implementation of HTTP networking, JSON parsing, error handling, and modern Material Design 3 UI patterns.
+
+The app fetches user data from the JSONPlaceholder API and presents it in a beautiful, user-friendly interface with comprehensive error handling and loading states.
+
+## ✨ Features
+
+### Core Functionality
+- ✅ **HTTP API Integration** - Fetch data from RESTful APIs
+- ✅ **JSON Parsing** - Convert JSON responses to Dart objects
+- ✅ **User List Display** - Shows all users in a scrollable list
+- ✅ **User Profile Details** - Detailed view of individual user information
+- ✅ **Pull to Refresh** - Refresh data with pull-down gesture
+- ✅ **Error Handling** - Comprehensive error management
+- ✅ **Loading States** - Visual feedback during data fetching
+
+### UI/UX Features
+- 🎨 **Modern Material Design 3** theme
+- 🌈 **Color-coded User Avatars** (6 vibrant gradient colors)
+- 💫 **Hero Animations** between screens
+- 📱 **Responsive Layouts** for different screen sizes
+- ✨ **Smooth Transitions** and animations
+- 🎯 **Clean Card-based Interface**
+- 🔄 **Interactive Refresh Indicators**
+
+### Error Handling
+- 🌐 **Network Connectivity Checks**
+- ⏱️ **Request Timeout Handling** (10 seconds)
+- 🔄 **Retry Functionality**
+- 📊 **User-friendly Error Messages**
+- 🚫 **Graceful Failure Management**
+
+## 📸 Screenshots
 
 ### Home Screen
-- Displays list of users from API
-- Beautiful gradient avatars
+- Displays list of users fetched from API
+- Gradient-colored user avatars
 - Pull-to-refresh functionality
-- Clean, modern card design
+- Loading indicators
+- Clean card-based design
 
 ### User Profile Screen
-- Expandable gradient header
-- Complete user information
-- Contact, Address, Company sections
-- Activity tracker with posts count
-
-## ✅ Week 4 Requirements - All Implemented
-
-### 1. HTTP Requests and JSON Parsing ✅
-- Uses `http` package for API requests
-- Fetches data from JSONPlaceholder API
-- Parses JSON responses into Dart objects
-- Displays data using ListView
-
-### 2. User Profile Screen ✅
-- Fetches detailed user information
-- Displays name, email, phone, website
-- Shows address and company details
-- Includes user posts count
-
-### 3. Error Handling and Loading Indicators ✅
-- Robust error handling for failed requests
-- Specific error messages for:
-  - No internet connection
-  - Request timeout (10 seconds)
-  - Server errors
-- Beautiful loading spinners
-- Pull-to-refresh functionality
-- Retry buttons on error screens
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Flutter SDK (3.0.0 or higher)
-- Dart SDK (3.0.0 or higher)
-- Android Studio / VS Code with Flutter extensions
-- An emulator or physical device
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/flutter_week4_app.git
-   cd flutter_week4_app
-   ```
-
-2. **Install dependencies**
-   ```bash
-   flutter pub get
-   ```
-
-3. **Run the app**
-   ```bash
-   flutter run
-   ```
+- Expandable gradient header with user avatar
+- Complete user information display
+- Contact details (email, phone, website)
+- Address information
+- Company details
+- Posts count activity tracker
 
 ## 📂 Project Structure
 
 ```
 flutter_week4_app/
 ├── lib/
-│   ├── main.dart                      # App entry point
+│   ├── main.dart                      # App entry point & theme configuration
 │   ├── models/
-│   │   └── user_model.dart           # User data models
+│   │   └── user_model.dart           # User data model with JSON parsing
 │   ├── services/
-│   │   └── api_service.dart          # API service handler
-│   ├── screens/
-│   │   ├── home_screen.dart          # Users list screen
-│   │   └── user_profile_screen.dart  # User profile details
-│   └── utils/
-│       └── constants.dart             # App constants
-├── pubspec.yaml                       # Dependencies
-├── README.md                          # This file
-├── QUICK_START_GUIDE.md              # Setup guide
-├── ARCHITECTURE.md                    # Architecture docs
-├── DESIGN.md                          # Design guide
-└── TROUBLESHOOTING.md                # Common issues
+│   │   └── api_service.dart          # API service for HTTP requests & error handling
+│   └── screens/
+│       ├── home_screen.dart          # Users list screen with pull-to-refresh
+│       └── user_profile_screen.dart  # User profile details screen
+├── android/                           # Android platform files
+├── ios/                              # iOS platform files
+├── web/                              # Web platform files
+├── linux/                            # Linux platform files
+├── macos/                            # macOS platform files
+├── windows/                          # Windows platform files
+├── test/                             # Unit and widget tests
+├── firebase.json                     # Firebase configuration
+├── pubspec.yaml                      # Project dependencies
+└── README.md                         # This file
+```
+
+## 🚀 Setup Instructions
+
+### Prerequisites
+
+Before you begin, ensure you have the following installed:
+- **Flutter SDK** (3.0.0 or higher)
+- **Dart SDK** (3.0.0 or higher)
+- **Android Studio** or **VS Code** with Flutter extensions
+- An **Android emulator**, **iOS simulator**, or **physical device**
+
+### Installation Steps
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Anmol-png/flutter_week4_app.git
+   cd flutter_week4_app
+   ```
+
+2. **Checkout week5 branch**
+   ```bash
+   git checkout week5
+   ```
+
+3. **Install dependencies**
+   ```bash
+   flutter pub get
+   ```
+
+4. **Verify Flutter setup**
+   ```bash
+   flutter doctor
+   ```
+
+5. **Run the app**
+   ```bash
+   flutter run
+   ```
+
+### Quick Start Commands
+
+```bash
+# Clean build (if facing issues)
+flutter clean
+flutter pub get
+flutter run
+
+# Run on specific device
+flutter devices                # List available devices
+flutter run -d <device-id>    # Run on specific device
+
+# Build for release
+flutter build apk             # Android
+flutter build ios             # iOS
 ```
 
 ## 📦 Dependencies
@@ -109,361 +152,387 @@ flutter_week4_app/
 dependencies:
   flutter:
     sdk: flutter
-  http: ^1.1.0              # For making HTTP requests
+  http: ^1.1.0              # HTTP networking library
   cupertino_icons: ^1.0.2   # iOS style icons
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0     # Recommended lints for Flutter
 ```
 
-## 🎯 API Used
+### Package Details
 
-**JSONPlaceholder** - Free fake API for testing
-- Base URL: `https://jsonplaceholder.typicode.com`
-- Endpoints:
-  - `GET /users` - Fetch all users
-  - `GET /users/:id` - Fetch specific user
-  - `GET /posts?userId=:id` - Fetch user's posts
+- **http (^1.1.0)**: A composable, cross-platform library for making HTTP requests
+  - Used for GET requests to JSONPlaceholder API
+  - Handles network timeouts and error responses
+  - Supports async/await patterns
 
-## 💡 Key Features
+## 🌐 API Integration
 
-### Beautiful UI/UX
-- 🎨 Modern Material Design 3
-- 🌈 Color-coded users (6 vibrant colors)
-- 💫 Hero animations between screens
-- ✨ Soft shadows and rounded corners
-- 📱 Responsive layouts
+### JSONPlaceholder API
 
-### Robust Architecture
-- 📁 Clean, modular code structure
-- 🔄 Proper separation of concerns
-- 📝 Well-documented code
-- ✅ Follows Flutter best practices
+The app uses the free [JSONPlaceholder](https://jsonplaceholder.typicode.com/) API for testing and prototyping.
 
-### Comprehensive Error Handling
-- 🌐 Network connectivity checks
-- ⏱️ Request timeout handling
-- 🔄 Retry functionality
-- 📊 User-friendly error messages
+**Base URL**: `https://jsonplaceholder.typicode.com`
+
+### Endpoints Used
+
+| Endpoint | Method | Description | Response |
+|----------|--------|-------------|----------|
+| `/users` | GET | Fetch all users | Array of user objects |
+| `/users/:id` | GET | Fetch specific user | Single user object |
+| `/posts?userId=:id` | GET | Fetch user's posts | Array of post objects |
+
+### Sample API Response
+
+```json
+{
+  "id": 1,
+  "name": "Leanne Graham",
+  "username": "Bret",
+  "email": "Sincere@april.biz",
+  "address": {
+    "street": "Kulas Light",
+    "suite": "Apt. 556",
+    "city": "Gwenborough",
+    "zipcode": "92998-3874",
+    "geo": {
+      "lat": "-37.3159",
+      "lng": "81.1496"
+    }
+  },
+  "phone": "1-770-736-8031 x56442",
+  "website": "hildegard.org",
+  "company": {
+    "name": "Romaguera-Crona",
+    "catchPhrase": "Multi-layered client-server neural-net",
+    "bs": "harness real-time e-markets"
+  }
+}
+```
+
+## ✅ Week 4 Requirements
+
+### Requirement 1: HTTP Requests and JSON Parsing ✅
+
+**Implementation:**
+- Uses `http` package for making GET requests
+- Fetches user data from JSONPlaceholder API
+- Parses JSON responses into strongly-typed Dart objects
+- Implements data models with factory constructors
+- Displays data in a ListView with custom ListTile widgets
+
+**Files:**
+- `lib/services/api_service.dart` - API service class
+- `lib/models/user_model.dart` - User data models
+
+### Requirement 2: User Profile Screen ✅
+
+**Implementation:**
+- Dedicated screen for displaying detailed user information
+- Fetches and displays:
+  - Name, username, email
+  - Phone number and website
+  - Complete address (street, suite, city, zipcode, coordinates)
+  - Company information (name, catchphrase, business)
+  - User's posts count
+- Beautiful gradient header with user avatar
+- Organized sections with Material Design cards
+
+**File:**
+- `lib/screens/user_profile_screen.dart`
+
+### Requirement 3: Error Handling and Loading Indicators ✅
+
+**Implementation:**
+
+**Loading States:**
+- CircularProgressIndicator during data fetch
+- Pull-to-refresh loading indicator
+- Smooth loading transitions
+
+**Error Handling:**
+- Network connectivity errors
+- Request timeout handling (10 seconds)
+- HTTP status code errors (4xx, 5xx)
+- JSON parsing errors
+- Specific error messages for each error type
+
+**User Feedback:**
+- Clear error messages with icons
+- Retry buttons on error screens
+- Toast/snackbar notifications
+- Visual error states
+
+**Files:**
+- Error handling in `lib/services/api_service.dart`
+- UI error states in `lib/screens/home_screen.dart`
+
+## 🔧 Technical Implementation
+
+### 1. HTTP Service Layer
+
+```dart
+class ApiService {
+  static const String baseUrl = 'https://jsonplaceholder.typicode.com';
+  
+  Future<List<User>> fetchUsers() async {
+    try {
+      final response = await http.get(
+        Uri.parse('$baseUrl/users'),
+      ).timeout(const Duration(seconds: 10));
+      
+      if (response.statusCode == 200) {
+        // Parse JSON
+        List<dynamic> jsonData = json.decode(response.body);
+        return jsonData.map((json) => User.fromJson(json)).toList();
+      } else {
+        throw Exception('Failed to load users');
+      }
+    } on SocketException {
+      throw Exception('No internet connection');
+    } on TimeoutException {
+      throw Exception('Request timeout');
+    } catch (e) {
+      throw Exception('Error: ${e.toString()}');
+    }
+  }
+}
+```
+
+### 2. Data Models
+
+```dart
+class User {
+  final int id;
+  final String name;
+  final String username;
+  final String email;
+  final Address address;
+  final String phone;
+  final String website;
+  final Company company;
+
+  User({
+    required this.id,
+    required this.name,
+    required this.username,
+    required this.email,
+    required this.address,
+    required this.phone,
+    required this.website,
+    required this.company,
+  });
+
+  factory User.fromJson(Map<String, dynamic> json) {
+    return User(
+      id: json['id'],
+      name: json['name'],
+      username: json['username'],
+      email: json['email'],
+      address: Address.fromJson(json['address']),
+      phone: json['phone'],
+      website: json['website'],
+      company: Company.fromJson(json['company']),
+    );
+  }
+}
+```
+
+### 3. State Management
+
+Uses Flutter's built-in `setState()` for managing:
+- Loading states (`_isLoading`)
+- Error states (`_error`)
+- Data state (`_users`, `_posts`)
+
+### 4. Navigation
+
+Implements Hero animations for smooth transitions:
+```dart
+Navigator.push(
+  context,
+  MaterialPageRoute(
+    builder: (context) => UserProfileScreen(user: user),
+  ),
+);
+```
 
 ## 🧪 Testing
 
 ### Manual Testing Checklist
+
+**Basic Functionality:**
 - [ ] App launches successfully
-- [ ] Loading indicator appears
-- [ ] Users list loads from API
+- [ ] Loading indicator appears on initial load
+- [ ] Users list displays correctly
 - [ ] Can tap on user to view profile
-- [ ] Profile screen displays all info
-- [ ] Pull-to-refresh works
-- [ ] Error handling works (turn off internet)
-- [ ] Retry button works
+- [ ] Profile screen shows all user details
+- [ ] Back navigation works properly
 
-### Test Error Handling
-1. Turn off internet/WiFi
-2. Open the app or pull to refresh
-3. See "No internet connection" error
-4. Turn on internet
-5. Tap "Try Again" button
-6. Data loads successfully
+**Refresh Functionality:**
+- [ ] Pull-to-refresh works on home screen
+- [ ] AppBar refresh button works
+- [ ] Loading indicator appears during refresh
+- [ ] Data updates after refresh
 
-## 📚 Documentation
+**Error Handling:**
+- [ ] Turn off internet → See appropriate error message
+- [ ] Turn on internet → Retry works
+- [ ] Timeout error displays properly
+- [ ] Server error (if any) handled gracefully
 
-- **README.md** (this file) - Overview and setup
-- **QUICK_START_GUIDE.md** - Step-by-step setup
-- **ARCHITECTURE.md** - Deep dive into architecture
-- **DESIGN.md** - UI/UX design explanation
-- **TROUBLESHOOTING.md** - Common issues and fixes
+**UI/UX:**
+- [ ] Animations are smooth
+- [ ] Colors render correctly
+- [ ] Text is readable
+- [ ] Buttons are responsive
+- [ ] Layout adapts to screen size
 
-## 🎓 Learning Outcomes
+### Testing Error Scenarios
 
-By studying this project, you'll learn:
-- ✅ HTTP requests in Flutter
-- ✅ JSON parsing and data modeling
-- ✅ State management with setState
-- ✅ Error handling patterns
-- ✅ Loading state management
-- ✅ Navigation between screens
-- ✅ ListView implementation
-- ✅ Material Design principles
-- ✅ Beautiful UI/UX design
+1. **No Internet Connection:**
+   - Turn off WiFi/mobile data
+   - Open the app or pull to refresh
+   - Verify error message: "No internet connection"
+   - Turn on internet
+   - Tap "Try Again"
+   - Verify data loads successfully
 
-## 🔧 Troubleshooting
+2. **Request Timeout:**
+   - Use very slow internet connection
+   - Wait for timeout (10 seconds)
+   - Verify timeout error message appears
+   - Tap retry
+   - Verify retry works
 
-### Common Issues
+## 🔍 Troubleshooting
 
-**Red squiggly lines in code?**
+### Common Issues and Solutions
+
+**Issue: Red squiggly lines in code**
 ```bash
 flutter pub get
 ```
 
-**App won't build?**
+**Issue: Build errors**
 ```bash
 flutter clean
 flutter pub get
 flutter run
 ```
 
-**Import errors?**
-- Make sure all files are in correct folders
+**Issue: Package version conflicts**
+```bash
+flutter pub upgrade
+```
+
+**Issue: Import errors**
+- Ensure all files are in correct folders
 - Run `flutter pub get`
 - Restart your IDE
 
-See **TROUBLESHOOTING.md** for detailed solutions.
+**Issue: App won't connect to API**
+- Check internet connection
+- Verify API endpoint is accessible
+- Check for any proxy/firewall issues
+- Ensure permissions are granted (Android: Internet permission)
 
-## 🚀 Future Enhancements (Week 5 & 6)
+**Issue: Slow performance**
+- Run in release mode: `flutter run --release`
+- Check for memory leaks
+- Optimize images and assets
 
-- [ ] Firebase Authentication
-- [ ] Cloud Firestore integration
-- [ ] Provider state management
-- [ ] Offline caching
-- [ ] Push notifications
-- [ ] Search functionality
-- [ ] Dark mode support
+### Android Permissions
 
-## 👨‍💻 Author
+The app requires internet permission. Ensure it's added in `android/app/src/main/AndroidManifest.xml`:
 
-**Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Email: your.email@example.com
+```xml
+<uses-permission android:name="android.permission.INTERNET" />
+```
 
-**Flutter Developers Internship - Cycle 2**
-- Week 4: API Integration and Networking
-- Deadline: February 15, 2026
+## 📱 Platform Support
+
+- ✅ Android
+- ✅ iOS
+- ✅ Web
+- ✅ Windows
+- ✅ macOS
+- ✅ Linux
+
+## 🎓 Learning Outcomes
+
+By studying this project, you will learn:
+
+1. **Networking in Flutter**
+   - Making HTTP GET requests
+   - Handling async operations
+   - Working with futures and async/await
+
+2. **JSON Handling**
+   - Parsing JSON responses
+   - Creating data models
+   - Using factory constructors
+   - Nested object parsing
+
+3. **Error Management**
+   - Try-catch blocks
+   - Exception handling
+   - Timeout handling
+   - Network error detection
+   - User feedback for errors
+
+4. **State Management**
+   - Using setState()
+   - Managing loading states
+   - Handling error states
+   - Refresh state management
+
+5. **UI Development**
+   - Material Design principles
+   - ListView implementation
+   - Custom widgets
+   - Navigation
+   - Hero animations
+   - Responsive layouts
+
+6. **Best Practices**
+   - Code organization
+   - Separation of concerns
+   - Clean architecture patterns
+   - Documentation
+   - Error handling patterns
+
+## 🚀 Future Enhancements
+
+Potential improvements for future versions:
+
+- [ ] Add local caching with shared_preferences
+- [ ] Implement Provider for state management
+- [ ] Add search functionality
+- [ ] Implement filtering and sorting
+- [ ] Add dark mode support
+- [ ] Include user posts in profile
+- [ ] Add pagination for large datasets
+- [ ] Implement offline mode
+- [ ] Add unit and widget tests
+- [ ] Include accessibility features
 
 ## 📄 License
 
 This project is created for educational purposes as part of the Flutter Developers Internship Program.
+
 
 ## 🙏 Acknowledgments
 
-- [JSONPlaceholder](https://jsonplaceholder.typicode.com/) - Free fake API
-- [Flutter Documentation](https://flutter.dev/docs)
-- [Material Design 3](https://m3.material.io/)
+- [JSONPlaceholder](https://jsonplaceholder.typicode.com/) - Free fake REST API for testing
+- [Flutter Documentation](https://flutter.dev/docs) - Official Flutter documentation
+- [Material Design 3](https://m3.material.io/) - Design guidelines
 - Flutter Developers Internship Program
 
-
-### ✅ Week 4 Requirements Implemented
-
-1. **HTTP Requests and JSON Parsing**
-   - Uses `http` package for API requests
-   - Fetches data from JSONPlaceholder API
-   - Parses JSON responses into Dart objects
-   - Displays data using ListView
-
-2. **User Profile Screen**
-   - Fetches and displays detailed user information
-   - Shows name, email, phone, website
-   - Displays address and company details
-   - Shows user's posts count
-
-3. **Error Handling and Loading Indicators**
-   - Comprehensive error handling for network failures
-   - Specific error messages for different failure types:
-     - No internet connection
-     - Request timeout
-     - Server errors
-   - Loading spinners while fetching data
-   - Pull-to-refresh functionality
-   - Retry button on error screens
-
-## 🏗️ Project Structure
-
-```
-lib/
-├── main.dart                      # App entry point
-├── models/
-│   └── user_model.dart           # User data model with JSON parsing
-├── services/
-│   └── api_service.dart          # API service for HTTP requests
-└── screens/
-    ├── home_screen.dart          # Users list screen
-    └── user_profile_screen.dart  # User profile details screen
-```
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Flutter SDK (3.0.0 or higher)
-- Dart SDK
-- Android Studio / VS Code with Flutter extensions
-- An emulator or physical device
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone <your-repo-url>
-   cd flutter_week4_app
-   ```
-
-2. **Install dependencies**
-   ```bash
-   flutter pub get
-   ```
-
-3. **Run the app**
-   ```bash
-   flutter run
-   ```
-
-## 📦 Dependencies
-
-```yaml
-dependencies:
-  flutter:
-    sdk: flutter
-  http: ^1.1.0              # For making HTTP requests
-  cupertino_icons: ^1.0.2   # iOS style icons
-```
-
-## 🎯 API Endpoints Used
-
-- **Base URL**: `https://jsonplaceholder.typicode.com`
-- **GET /users** - Fetch all users
-- **GET /users/:id** - Fetch specific user details
-- **GET /posts?userId=:id** - Fetch user's posts
-
-## 💡 Key Concepts Demonstrated
-
-### 1. HTTP Requests
-```dart
-final response = await http.get(
-  Uri.parse('$baseUrl/users'),
-).timeout(const Duration(seconds: 10));
-```
-
-### 2. JSON Parsing
-```dart
-factory User.fromJson(Map<String, dynamic> json) {
-  return User(
-    id: json['id'],
-    name: json['name'],
-    email: json['email'],
-    // ... other fields
-  );
-}
-```
-
-### 3. Error Handling
-```dart
-try {
-  final users = await _apiService.fetchUsers();
-  // Handle success
-} catch (e) {
-  // Handle errors with specific messages
-  if (e.toString().contains('SocketException')) {
-    throw Exception('No internet connection');
-  }
-}
-```
-
-### 4. Loading States
-```dart
-if (_isLoading) {
-  return Center(
-    child: CircularProgressIndicator(),
-  );
-}
-```
-
-## 📸 App Screenshots
-
-### Home Screen
-- Displays a list of all users from the API
-- Shows user name, email, and phone
-- Loading indicator while fetching data
-- Pull-to-refresh functionality
-- Error handling with retry button
-
-### User Profile Screen
-- Detailed user information display
-- Contact information section
-- Address details
-- Company information
-- User posts count
-- Beautiful gradient header with user avatar
-
-## 🎨 UI/UX Features
-
-- **Material Design 3** theme
-- **Responsive layouts** that work on different screen sizes
-- **Smooth animations** and transitions
-- **Intuitive navigation** between screens
-- **Clear visual feedback** for all user actions
-- **Professional card-based** design
-- **Color-coded sections** for better readability
-
-## 🔧 Error Handling
-
-The app handles various error scenarios:
-
-1. **No Internet Connection**: Detects network unavailability
-2. **Request Timeout**: 10-second timeout for all requests
-3. **Server Errors**: Handles HTTP status code errors
-4. **Parsing Errors**: Manages JSON parsing failures
-
-Each error displays:
-- A clear error icon
-- Descriptive error message
-- Retry button to attempt the request again
-
-## 🧪 Testing the App
-
-### Test Cases
-
-1. **Normal Operation**
-   - Open app → See loading indicator → View users list
-   - Tap on a user → See profile loading → View detailed profile
-
-2. **Error Scenarios**
-   - Turn off internet → See "No internet connection" error
-   - Turn on internet → Tap retry → See data load successfully
-
-3. **Refresh Functionality**
-   - Pull down on users list → See refresh indicator → Data reloads
-   - Tap refresh icon in AppBar → Data reloads
-
-## 📚 Learning Outcomes
-
-By completing this project, you will learn:
-
-- ✅ How to make HTTP GET requests in Flutter
-- ✅ JSON parsing and data modeling
-- ✅ Proper error handling in async operations
-- ✅ State management using setState
-- ✅ Building responsive UI layouts
-- ✅ ListView and ListTile widgets
-- ✅ Navigation between screens
-- ✅ Loading indicators and user feedback
-- ✅ Material Design principles
-
-## 🔜 Next Steps (Week 5 & 6)
-
-- Integrate Firebase Authentication
-- Add Firestore database
-- Implement Provider for state management
-- Add offline caching
-- Implement push notifications
-
-
-## 📄 License
-
-This project is created for educational purposes as part of the Flutter Developers Internship Program.
-
 ---
 
-## 🤝 Contributing
+**Built with ❤️ using Flutter**
 
-This is an internship project. If you find any issues or have suggestions:
-
-1. Create an issue in the repository
-2. Fork the project
-3. Create a feature branch
-4. Submit a pull request
-
----
-
-**Note**: This app uses the free JSONPlaceholder API for demonstration purposes. No authentication is required.
-
-
----
-
-**Happy Coding! 🚀**
+For questions or support, please create an issue in the repository.
